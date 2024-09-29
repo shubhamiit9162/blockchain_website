@@ -1,0 +1,112 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+/* Hero Section Styles */
+.hero {
+    background: linear-gradient(to right, #4a90e2, #9013fe);
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+/* Upcoming Events Section Styles */
+.upcoming-events {
+    background: white;
+    padding: 30px 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.upcoming-events h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.upcoming-events ul {
+    list-style-type: none;
+}
+
+.upcoming-events li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.upcoming-events li:last-child {
+    border-bottom: none;
+}
+
+/* Latest News Section Styles */
+.latest-news {
+    background: white;
+    padding: 30px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.latest-news h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.latest-news ul {
+    list-style-type: none;
+}
+
+.latest-news li {
+    margin-bottom: 10px;
+}
+
+.latest-news a {
+    text-decoration: none;
+    color: #4a90e2;
+    transition: color 0.3s;
+}
+
+.latest-news a:hover {
+    color: #9013fe;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero {
+        padding: 30px 10px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .upcoming-events, .latest-news {
+        padding: 20px 10px;
+    }
+
+    .upcoming-events h2, .latest-news h2 {
+        font-size: 1.5rem;
+    }
+}
