@@ -2,6 +2,7 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
+    
     walletAddress: { type: String, required: true, unique: true },
     name: { type: String, required: true },
     contributions: { type: Number, default: 0 },
