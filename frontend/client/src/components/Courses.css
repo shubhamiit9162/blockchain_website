@@ -1,0 +1,120 @@
+/* Advanced CSS for Courses Component */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fb;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #1d3557;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h2, h3 {
+    font-size: 2rem;
+    color: #457b9d;
+    text-align: center;
+    margin-top: 30px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+ul li {
+    font-size: 1.2rem;
+    background-color: #a8dadc;
+    margin: 10px auto;
+    padding: 10px;
+    width: 60%;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+ul li:hover {
+    background-color: #457b9d;
+    color: #fff;
+    cursor: pointer;
+}
+
+button {
+    font-size: 1rem;
+    background-color: #1d3557;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin: 15px auto;
+    display: block;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #457b9d;
+    transform: translateY(-3px);
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.tutorial-content {
+    background-color: #f1faee;
+    border-left: 5px solid #457b9d;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    transition: max-height 0.3s ease;
+}
+
+input[type="file"] {
+    margin: 20px auto;
+    display: block;
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #457b9d;
+    width: 60%;
+}
+
+video {
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+p {
+    font-size: 1.1rem;
+    color: #333;
+    width: 80%;
+    margin: 20px auto;
+    line-height: 1.6;
+    text-align: center;
+}
+
+button:focus, input:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(69, 123, 157, 0.8);
+}
+
+@media (max-width: 768px) {
+    ul li, input[type="file"], video {
+        width: 90%;
+    }
+
+    h1, h2, h3 {
+        font-size: 1.8rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+}
