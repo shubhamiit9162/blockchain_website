@@ -2,6 +2,7 @@
 import React from 'react';
 import Navbar from './Navbar';
 import './Home.css'; // Import the Navbar component
+import WalletConnection from './WalletConnection';
 
 const Home = () => {
     return (
@@ -11,6 +12,7 @@ const Home = () => {
                 <h1>Welcome to the Blockchain Club</h1>
                 <p>Your hub for all things blockchain!</p>
             </header>
+            <WalletConnection />
             <section className="upcoming-events">
                 <h2>Upcoming Events</h2>
                 <ul>
