@@ -7,6 +7,7 @@ import Dashboard from './components/Dashboard';
 import Profile from './components/Profile';
 import AdminPanel from './components/AdminPanel';
 import './styles/global.css';
+import './services/api';
 
 const App = () => {
     return (

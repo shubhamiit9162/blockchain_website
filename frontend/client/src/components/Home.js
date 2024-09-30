@@ -1,8 +1,12 @@
+// Home page component
 import React from 'react';
+import Navbar from './Navbar';
+import './Home.css'; // Import the Navbar component
 
 const Home = () => {
     return (
         <div>
+            <Navbar /> {/* Include the Navbar here */}
             <header className="hero">
                 <h1>Welcome to the Blockchain Club</h1>
                 <p>Your hub for all things blockchain!</p>
