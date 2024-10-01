@@ -1,12 +1,12 @@
-// Courses.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Courses.css';
-
 
 const Courses = () => {
     const [showTutorial, setShowTutorial] = useState(false);
     const [uploadedVideo, setUploadedVideo] = useState(null);
     const [tradeSignal, setTradeSignal] = useState(false);
+    const [cryptoSymbol, setCryptoSymbol] = useState('BTC'); // Default to Bitcoin
+    const [showTradingView, setShowTradingView] = useState(false);
 
     const toggleTutorial = () => {
         setShowTutorial(!showTutorial);
@@ -19,12 +19,42 @@ const Courses = () => {
 
     const sendTradeSignal = () => {
         setTradeSignal(true);
-        // You can integrate with WebSocket or API here for real-time signals
         setTimeout(() => {
             alert("Trade Signal: It's time to take action! Execute your trade now.");
+            setShowTradingView(true); // Show TradingView chart after trade signal
             setTradeSignal(false);
         }, 2000); // Simulate a delay before the signal is shown
     };
+
+    // Function to load TradingView widget
+    const loadTradingView = () => {
+        const script = document.createElement('script');
+        script.src = "https://s3.tradingview.com/tv.js";
+        script.async = true;
+        script.onload = () => {
+            new window.TradingView.widget({
+                "width": 980,
+                "height": 610,
+                "symbol": `BINANCE:${cryptoSymbol}USDT`,
+                "interval": "D",
+                "timezone": "Etc/UTC",
+                "theme": "light",
+                "style": "1",
+                "locale": "en",
+                "toolbar_bg": "#f1f3f6",
+                "enable_publishing": false,
+                "allow_symbol_change": true,
+                "container_id": "tradingview-chart"
+            });
+        };
+        document.body.appendChild(script);
+    };
+
+    useEffect(() => {
+        if (showTradingView) {
+            loadTradingView();
+        }
+    }, [showTradingView]);
 
     return (
         <div>
@@ -84,6 +114,19 @@ const Courses = () => {
             <button onClick={sendTradeSignal} disabled={tradeSignal}>
                 {tradeSignal ? 'Trade Signal Sent!' : 'Get Trade Signal'}
             </button>
+
+            {/* TradingView Widget */}
+            {showTradingView && (
+                <div>
+                    <h3>TradingView Chart</h3>
+                    <div
+                        className="tradingview-widget-container"
+                        style={{ width: "100%", height: "500px" }}
+                    >
+                        <div id="tradingview-chart"></div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
