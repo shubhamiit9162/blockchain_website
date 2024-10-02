@@ -1,0 +1,17 @@
+/* Footer.css */
+.footer {
+    background-color: #420404;
+    color: rgba(214, 41, 41, 0.566);
+    padding: 20px;
+    text-align: center;
+}
+
+.social-media-links a {
+    margin: 0 10px;
+    color: rgba(182, 20, 20, 0.648);
+    text-decoration: none;
+}
+
+.social-media-links a:hover {
+    color: #c11212bc;
+}

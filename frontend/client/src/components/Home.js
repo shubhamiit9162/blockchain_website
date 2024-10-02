@@ -1,13 +1,14 @@
-// Home page component
+// Home.js
 import React from 'react';
 import Navbar from './Navbar';
-import './Home.css'; // Import the Navbar component
+import './Home.css';
 import WalletConnection from './WalletConnection';
+import Footer from './Footer';
 
 const Home = () => {
     return (
-        <div>
-            <Navbar /> {/* Include the Navbar here */}
+        <div className="page-container"> {/* Add the border container */}
+            <Navbar />
             <header className="hero">
                 <h1>Welcome to the Blockchain Club</h1>
                 <p>Your hub for all things blockchain!</p>
@@ -28,6 +29,7 @@ const Home = () => {
                     <li><a href="#">Trends in Cryptocurrency</a></li>
                 </ul>
             </section>
+            <Footer />
         </div>
     );
 };

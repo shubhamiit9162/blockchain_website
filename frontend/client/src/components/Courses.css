@@ -118,3 +118,48 @@ button:focus, input:focus {
         font-size: 1rem;
     }
 }
+.fixed-trade-details {
+    position: fixed;
+    top: 10px;
+    bottom: 10px; 
+    right: 10px; 
+    background-color: rgba(255, 255, 224, 0.95); 
+    padding: 4px; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); 
+    width: 50px; 
+    font-size: 10px; 
+    z-index: 500; 
+}
+
+.fixed-trade-details h4 {
+    margin: 4px 0; 
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.fixed-trade-details p {
+    margin: 2px 0; 
+}
+
+.fixed-trade-details ul {
+    list-style-type: none; 
+    padding: 0;
+}
+
+.fixed-trade-details li {
+    margin: 4px 0; 
+}
+
+.fixed-trade-details p, .fixed-trade-details li {
+    font-size: 11px; 
+}
+
+@media (max-width: 768px) {
+    .fixed-trade-details {
+        width: 60px; 
+        font-size: 10px; 
+    }
+}
+
+

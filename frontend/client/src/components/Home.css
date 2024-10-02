@@ -1,10 +1,16 @@
-/* Home.css */
-
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f9;
+}
+
+/* Add this to create a double border around the entire page */
+.page-container {
+    border: 5px double #6f86d6; /* Creates a double border with your primary color */
+    padding: 20px; /* Adds space inside the border */
+    margin: 20px; /* Adds space around the page */
+    border-radius: 10px; /* Optional: round the corners */
 }
 
 /* Hero Section */

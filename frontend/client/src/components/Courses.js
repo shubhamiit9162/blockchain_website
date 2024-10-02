@@ -7,6 +7,12 @@ const Courses = () => {
     const [tradeSignal, setTradeSignal] = useState(false);
     const [cryptoSymbol, setCryptoSymbol] = useState('BTC'); // Default to Bitcoin
     const [showTradingView, setShowTradingView] = useState(false);
+    
+    // New state for trade details
+    const [openPosition, setOpenPosition] = useState(null);
+    const [targetPosition, setTargetPosition] = useState(null);
+    const [tradeAmount, setTradeAmount] = useState(null);
+    const [tradeHistory, setTradeHistory] = useState([]);
 
     const toggleTutorial = () => {
         setShowTutorial(!showTutorial);
@@ -20,6 +26,25 @@ const Courses = () => {
     const sendTradeSignal = () => {
         setTradeSignal(true);
         setTimeout(() => {
+            const newOpenPosition = 50000; // Example value
+            const newTargetPosition = 52000; // Example value
+            const newTradeAmount = 100; // Example value in USDT
+
+            // Update state with new trade details
+            setOpenPosition(newOpenPosition);
+            setTargetPosition(newTargetPosition);
+            setTradeAmount(newTradeAmount);
+
+            // Add to trade history
+            const newTrade = {
+                symbol: cryptoSymbol,
+                openPosition: newOpenPosition,
+                targetPosition: newTargetPosition,
+                tradeAmount: newTradeAmount,
+                date: new Date().toLocaleString(),
+            };
+            setTradeHistory([newTrade, ...tradeHistory]);
+
             alert("Trade Signal: It's time to take action! Execute your trade now.");
             setShowTradingView(true); // Show TradingView chart after trade signal
             setTradeSignal(false);
@@ -98,15 +123,6 @@ const Courses = () => {
                 </div>
             )}
 
-            <h3>Imaginative Content</h3>
-            <p>
-                Imagine you're building your first decentralized application (DApp) using a smart contract. You can create a virtual marketplace, set up transactions, and even deploy your own cryptocurrency.
-            </p>
-            <p>
-                To simulate this, imagine the process visually: a buyer requests an item, the smart contract automatically triggers when the conditions are met, and the buyer gets the item while the seller receives the payment.
-            </p>
-            <button>Start Your Virtual Marketplace Simulation</button>
-
             <h3>Trade Signals</h3>
             <p>
                 Blockchain technology isn't just for development—it's also heavily used in finance and trading. Here's your real-time trade signal based on market data:
@@ -121,10 +137,93 @@ const Courses = () => {
                     <h3>TradingView Chart</h3>
                     <div
                         className="tradingview-widget-container"
-                        style={{ width: "100%", height: "500px" }}
+                        style={{ width: "100%", height: "500px", position: 'relative' }}
                     >
                         <div id="tradingview-chart"></div>
+
+                        {/* Buttons for trading platforms */}
+                        <div style={{ position: 'absolute', top: '10px', left: '10px' }}>
+                            <a 
+                                href="https://www.angelone.in/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{ 
+                                    display: 'inline-block', 
+                                    padding: '5px 10px', 
+                                    margin: '5px', 
+                                    backgroundColor: '#4CAF50', 
+                                    color: 'white', 
+                                    textDecoration: 'none', 
+                                    fontSize: '10px',
+                                    borderRadius: '5px'
+                                }}
+                            >
+                                AngleOne
+                            </a>
+                            <a 
+                                href="https://zerodha.com/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{ 
+                                    display: 'inline-block', 
+                                    padding: '5px 10px', 
+                                    margin: '5px', 
+                                    backgroundColor: '#FF5722', 
+                                    color: 'white', 
+                                    textDecoration: 'none', 
+                                    fontSize: '10px',
+                                    borderRadius: '5px'
+                                }}
+                            >
+                                Zerodha
+                            </a>
+                            <a 
+                                href="https://bingx.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{ 
+                                    display: 'inline-block', 
+                                    padding: '5px 10px', 
+                                    margin: '5px', 
+                                    backgroundColor: '#FFD700', 
+                                    color: 'white', 
+                                    textDecoration: 'none', 
+                                    fontSize: '10px',
+                                    borderRadius: '5px'
+                                }}
+                            >
+                                BingX
+                            </a>
+                        </div>
                     </div>
+                </div>
+            )}
+
+            {/* Open Position, Target Position, and Trade Amount */}
+            {openPosition && targetPosition && tradeAmount && (
+                <div style={{ position: 'fixed', bottom: '10px', right: '10px', backgroundColor: 'lightyellow', padding: '5px', borderRadius: '5px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
+                    <h4>Trade Details</h4>
+                    <p><strong>Open Position:</strong> {openPosition} USDT</p>
+                    <p><strong>Target Position:</strong> {targetPosition} USDT</p>
+                    <p><strong>Trade Amount:</strong> {tradeAmount} USDT</p>
+
+                    {/* Trade History */}
+                    {tradeHistory.length > 0 && (
+                        <div>
+                            <h4>Trade History</h4>
+                            <ul>
+                                {tradeHistory.map((trade, index) => (
+                                    <li key={index}>
+                                        <p><strong>Symbol:</strong> {trade.symbol}</p>
+                                        <p><strong>Open Position:</strong> {trade.openPosition} USDT</p>
+                                        <p><strong>Target Position:</strong> {trade.targetPosition} USDT</p>
+                                        <p><strong>Amount:</strong> {trade.tradeAmount} USDT</p>
+                                        <p><strong>Date:</strong> {trade.date}</p>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    )}
                 </div>
             )}
         </div>
